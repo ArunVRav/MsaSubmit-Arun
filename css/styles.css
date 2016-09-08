@@ -10,7 +10,7 @@
 body{
   background-color: maroon;
 	padding: 40px;
-	overflow-x: hidden; /* For Opera */
+	overflow-x: hidden;
 	-webkit-box-shadow:
 		inset #19d4ff 0 0 0 5px,
 		inset #18cdf7 0 0 0 1px,
