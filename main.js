@@ -1,4 +1,6 @@
 var map;
+var cityCircle;
+var InfoWindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
@@ -15,4 +17,15 @@ function initMap() {
         radius: 50000,
         editable: true
     });
+    cityCircle.setMap(map);
+    cityCircle.addListener(cityCircle, 'radius_changed');
+    infoWindow = new google.maps.InfoWindow();
+    function showRad(event) {
+        var rad = cityCircle.getRadius();
+        var contentString = '<b>Circle moved.</b><br>' +
+            'New north-east corner: ' + rad;
+        infoWindow.setContent(contentString);
+        infoWindow.setPosition(ne);
+        infoWindow.open(map);
+    }
 }

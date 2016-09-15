@@ -1,18 +1,35 @@
 var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      var cityCircle = new google.maps.Circle({
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35,
-            map: map,
-            center: {lat: -34.397, lng: 150.644},
-            radius: 50000,
-            editable:true
-          });
+var cityCircle;
+var InfoWindow;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8
+  });
+  var cityCircle = new google.maps.Circle({
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    map: map,
+    center: { lat: -34.397, lng: 150.644 },
+    radius: 50000,
+    editable: true
+  });
+  cityCircle.setMap(map);
+  cityCircle.addListener(cityCircle, 'radius_changed')
+   infoWindow = new google.maps.InfoWindow();
+
+  function showRad(event){
+    var rad: number = cityCircle.getRadius()
+    var contentString = '<b>Circle moved.</b><br>' +
+            'New north-east corner: ' + rad;
+            infoWindow.setContent(contentString);
+        infoWindow.setPosition(ne);
+
+        infoWindow.open(map);
       }
+
+  }
+}
