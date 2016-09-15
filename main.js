@@ -3,7 +3,7 @@ var cityCircle;
 var InfoWindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -34.397, lng: 150.644 },
+        center: { lat: -36.8485, lng: 174.7633 },
         zoom: 8
     });
     var cityCircle = new google.maps.Circle({
@@ -13,7 +13,7 @@ function initMap() {
         fillColor: '#FF0000',
         fillOpacity: 0.35,
         map: map,
-        center: { lat: -34.397, lng: 150.644 },
+        center:{ lat: -36.8485, lng: 174.7633 },
         radius: 50000,
         editable: true
     });
